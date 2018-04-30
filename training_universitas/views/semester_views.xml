@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="semester_action" model="ir.actions.act_window">
+		    <field name="name">Semester</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">universitas.semester</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		</record>
+
+		<!-- TREE VIEWS -->
+		<record id="semester_view_tree" model="ir.ui.view">
+		    <field name="name">TREE : Semester</field>
+		    <field name="model">universitas.semester</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <tree colors="green:semester_type=='ganjil';red:semester_type=='genap'">
+		            <field name="name"/>
+		            <field name="date_start"/>
+		            <field name="date_end"/>
+		            <field name="semester_type"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<!-- FORM VIEWS -->
+		<record id="universitas_semester_view_form" model="ir.ui.view">
+		    <field name="name">universitas.semester form</field>
+		    <field name="model">universitas.semester</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <form>
+		            <group name="group_1" colspan="4" col="2">
+		                <field name="name"/>
+		                <field name="active"/>
+		                <field name="date_start"/>
+		                <field name="date_end"/>
+		                <field name="note"/>
+		            </group>
+		        </form>
+		    </field>
+		</record>
+	</data>
+</openerp>

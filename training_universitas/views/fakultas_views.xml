@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="fakultas_action" model="ir.actions.act_window">
+		    <field name="name">Fakultas</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">universitas.fakultas</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		</record>
+
+		<!-- TREE VIEWS -->
+		<record id="fakultas_view_tree" model="ir.ui.view">
+		    <field name="name">TREE : Fakultas</field>
+		    <field name="model">universitas.fakultas</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <tree>
+		            <field name="name"/>
+		            <field name="kode"/>
+		            <field name="keterangan"/>
+		            <field name="active"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<!-- FORM VIEWS -->
+		<record id="universitas_fakultas_view_form" model="ir.ui.view">
+		    <field name="name">universitas.fakultas form</field>
+		    <field name="model">universitas.fakultas</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <form>
+		            <group name="group_1" colspan="4" col="2">
+		                <field name="name"/>
+		                <field name="active"/>
+		                <field name="keterangan"/>
+		            </group>
+		        </form>
+		    </field>
+		</record>
+	</data>
+</openerp>

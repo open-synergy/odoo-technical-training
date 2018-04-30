@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- UNIVERSITAS -->
+		<menuitem
+		    id="universitas_root_menu"
+		    name="Universitas"
+		    sequence="1"
+	    />
+
+			<!-- REGISTRASI ROOT-->
+			<menuitem
+			    id="registrasi_root_menu"
+			    name="Registrasi"
+			    parent="universitas_root_menu"
+		    />
+
+				<!-- REGISTRASI -->
+				<menuitem
+				    id="registrasi_menu"
+				    name="Registrasi"
+				    parent="registrasi_root_menu"
+				    action="registrasi_action"
+			    />
+
+		<!-- REPORT-->
+		<menuitem
+		    id="report_root_menu"
+		    name="Report"
+		    parent="universitas_root_menu"
+		    sequence="2"
+	    />
+
+		<!-- CONFIGURATION-->
+		<menuitem
+		    id="configuration_root_menu"
+		    name="Configuration"
+		    parent="universitas_root_menu"
+		    sequence="99"
+	    />
+
+			<!-- FAKULTAS -->
+			<menuitem
+			    id="fakultas_menu"
+			    name="Fakultas"
+			    parent="configuration_root_menu"
+			    action="fakultas_action"
+		    />
+
+			<!-- SEMESTER -->
+			<menuitem
+			    id="semester_menu"
+			    name="Semester"
+			    parent="configuration_root_menu"
+			    action="semester_action"
+		    />
+
+			<!-- PROGRAM STUDI -->
+			<menuitem
+			    id="program_studi_menu"
+			    name="Program Studi"
+			    parent="configuration_root_menu"
+			    action="program_studi_action"
+		    />
+
+			<!-- MATA KULIAH -->
+			<menuitem
+			    id="mata_kuliah_menu"
+			    name="Mata Kuliah"
+			    parent="configuration_root_menu"
+				action="mata_kuliah_action"
+		    />
+
+			<!-- AKTIVITAS MK -->
+			<menuitem
+			    id="aktivas_mk_menu"
+			    name="Aktivitas MK"
+			    parent="configuration_root_menu"
+			    action="universitas_aktivitas_mk_action"
+		    />
+
+	</data>
+</openerp>

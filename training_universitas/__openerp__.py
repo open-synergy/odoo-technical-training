@@ -12,5 +12,12 @@
         "base",
     ],
     "data": [
+        "views/aktivitas_mk_views.xml",
+        "views/registrasi_views.xml",
+        "views/semester_views.xml",
+        "views/fakultas_views.xml",
+        "views/program_studi_views.xml",
+        "views/mata_kuliah_views.xml",
+        "views/menu.xml"
     ],
 }
