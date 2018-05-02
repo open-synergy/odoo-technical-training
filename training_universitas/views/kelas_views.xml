@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- SEARCH VIEWS -->
+        <record id="universitas_kelas_view_search" model="ir.ui.view">
+            <field name="name">universitas.kelas search</field>
+            <field name="model">universitas.kelas</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Kelas">
+                    <field name="name" string="Kelas"/>
+                    <field name="semester_id" string="Semester"/>
+                    <field name="mata_kuliah_id" string="Mata Kuliah"/>
+                    <group expand="0" string="Group By">
+                        <filter name="semester_id" string="Semester" context="{'group_by':'semester_id'}"/>
+                        <filter name="mata_kuliah_id" string="Mata Kuliah" context="{'group_by':'mata_kuliah_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+		<!-- WINDOW ACTION -->
+		<record id="universitas_kelas_action" model="ir.actions.act_window">
+		    <field name="name">universitas.kelas action</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">universitas.kelas</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" ref="universitas_kelas_view_search"/>
+		</record>
+
+		<!-- TREE VIEWS -->
+		<record id="universitas_kelas_view_tree" model="ir.ui.view">
+		    <field name="name">universitas.kelas tree</field>
+		    <field name="model">universitas.kelas</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <tree>
+		            <field name="name"/>
+		            <field name="semester_id"/>
+		            <field name="mata_kuliah_id"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<!-- FORM VIEWS -->
+		<record id="universitas_kelas_view_form" model="ir.ui.view">
+		    <field name="name">universitas.kelas form</field>
+		    <field name="model">universitas.kelas</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <form>
+		            <group name="group_1" colspan="4" col="2">
+			            <field name="name"/>
+			            <field name="semester_id"/>
+			            <field name="mata_kuliah_id"/>
+			            <field name="active"/>
+		            </group>
+					<field name="keterangan" placeholder="Keterangan.."/>
+		        </form>
+		    </field>
+		</record>
+	</data>
+</openerp>
