@@ -13,7 +13,7 @@ class UniversitasAktivitasMataKuliah(models.Model):
         string="Aktivitas Mata Kuliah",
         required=True,
     )
-    code = fields.Char(
+    kode = fields.Char(
         string="Kode",
     )
     note = fields.Text(

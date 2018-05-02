@@ -11,7 +11,6 @@ class UniversitasMataKuliah(models.Model):
 
     name = fields.Char(
         string="Mata Kuliah",
-        size=5,
         required=True,
     )
 
@@ -39,8 +38,4 @@ class UniversitasMataKuliah(models.Model):
         relation="rel_matakuliah_2_aktivitas",
         column1="mata_kuliah_id",
         column2="aktivitas_id",
-    )
-
-    Test = fields.Many2many(
-        string="Test"
     )

@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+        <!-- SEARCH VIEWS -->
+        <record id="universitas_program_studi_view_search" model="ir.ui.view">
+            <field name="name">universitas.program_studi search</field>
+            <field name="model">universitas.program_studi</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Program Studi">
+                    <field name="name" string="Nama Program Studi"/>
+                    <field name="kode" string="Kode"/>
+                    <field name="fakultas_id" string="Fakultas"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Fakultas" context="{'group_by':'fakultas_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+		<!-- WINDOW ACTIONS -->
 		<record id="program_studi_action" model="ir.actions.act_window">
 		    <field name="name">Program Studi</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">universitas.program_studi</field>
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" ref="universitas_program_studi_view_search"/>
 		</record>
 
 		<!-- TREE VIEWS -->

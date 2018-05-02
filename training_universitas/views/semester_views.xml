@@ -1,45 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-	<data>
-		<record id="semester_action" model="ir.actions.act_window">
-		    <field name="name">Semester</field>
-		    <field name="type">ir.actions.act_window</field>
-		    <field name="res_model">universitas.semester</field>
-		    <field name="view_type">form</field>
-		    <field name="view_mode">tree,form</field>
-		</record>
+    <data>
+        <!-- SEARCH VIEWS -->
+        <record id="universitas_semester_view_search" model="ir.ui.view">
+            <field name="name">universitas.semester search</field>
+            <field name="model">universitas.semester</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Semester">
+                    <field name="name" string="Nama Semester"/>
+                    <field name="date_start" string="Tanggal Sekarang"/>
+                    <filter domain="[('name','=','ganjil')]" string="Ganjil"/>
+                    <filter domain="[('semester_type','=','genap')]" string="Genap"/>
+                    <filter domain="[('semester_type','=','sp')]" string="SP"/>
+                    <filter
+                        name="semester_aktif"
+                        domain="[
+                            ('date_start', '&lt;=', (context_today().strftime('%Y-%m-%d'))),
+                            ('date_end', '&gt;=', (context_today().strftime('%Y-%m-%d')))
+                        ]" 
+                        string="Semester Aktif"/>
+                    <filter
+                        domain="[
+                            ('date_start', '&gt;=', (context_today().strftime('%Y-%m-%d')))
+                        ]" 
+                        string="Semester Akan Berjalan"/>
+                    <filter
+                        domain="[
+                            ('date_end', '&lt;=', (context_today().strftime('%Y-%m-%d')))
+                        ]" 
+                        string="Semester Sudah Berjalan"/>
+                    <group expand="0" string="Group By">
+                        <filter name="semester_type" string="Semester Type" context="{'group_by':'semester_type'}"/>
+                        <filter string="Date Start:Day" context="{'group_by':'date_start:day'}"/>
+                        <filter string="Date Start:Week" context="{'group_by':'date_start:week'}"/>
+                        <filter string="Date Start:Month" context="{'group_by':'date_start:month'}"/>
+                        <filter string="Date Start:Quarter" context="{'group_by':'date_start:quarter'}"/>
+                        <filter string="Date Start:Year" context="{'group_by':'date_start:year'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
 
-		<!-- TREE VIEWS -->
-		<record id="semester_view_tree" model="ir.ui.view">
-		    <field name="name">TREE : Semester</field>
-		    <field name="model">universitas.semester</field>
-		    <field name="mode">primary</field>
-		    <field name="arch" type="xml">
-		        <tree colors="green:semester_type=='ganjil';red:semester_type=='genap'">
-		            <field name="name"/>
-		            <field name="date_start"/>
-		            <field name="date_end"/>
-		            <field name="semester_type"/>
-		        </tree>
-		    </field>
-		</record>
+        <!-- KANBAN VIEWS -->
+        <record id="universitas_semester_view_kanban" model="ir.ui.view">
+            <field name="name">universitas.semester kanban</field>
+            <field name="model">universitas.semester</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="semester_type"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_project oe_kanban_global_click">
+                                <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_user">
+                                    <span class="oe_e">í</span>
+                                    <ul class="oe_dropdown_menu">
+                                        <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Edit</a></li></t>
+                                        <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <h4 class="text-center"><strong><field name="name"/></strong></h4>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
-		<!-- FORM VIEWS -->
-		<record id="universitas_semester_view_form" model="ir.ui.view">
-		    <field name="name">universitas.semester form</field>
-		    <field name="model">universitas.semester</field>
-		    <field name="mode">primary</field>
-		    <field name="arch" type="xml">
-		        <form>
-		            <group name="group_1" colspan="4" col="2">
-		                <field name="name"/>
-		                <field name="active"/>
-		                <field name="date_start"/>
-		                <field name="date_end"/>
-		                <field name="note"/>
-		            </group>
-		        </form>
-		    </field>
-		</record>
-	</data>
+        <!-- GRAPH VIEWS -->
+        <record id="universitas_semester_view_graph" model="ir.ui.view">
+            <field name="name">universitas.semester graph</field>
+            <field name="model">universitas.semester</field>
+            <field name="arch" type="xml">
+                <graph string="Grafik Semester" type="bar">
+                    <field name="semester_type"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- CALENDAR VIEWS -->
+        <record id="universitas_semester_view_calendar" model="ir.ui.view">
+            <field name="name">universitas.semester calendar</field>
+            <field name="model">universitas.semester</field>
+            <field name="arch" type="xml">
+                <calendar string="Semester" color="semester_type" date_start="date_start" date_stop="date_end">
+                    <field name="name"/>
+                    <field name="semester_type"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- GANTT VIEWS -->
+        <record id="universitas_semester_view_gantt" model="ir.ui.view">
+            <field name="name">universitas.semester gantt</field>
+            <field name="model">universitas.semester</field>
+            <field name="arch" type="xml">
+                <gantt date_start="date_start" date_stop="date_end" progress="progress" string="Semester" default_group_by="semester_type">
+                </gantt>
+            </field>
+        </record>
+
+        <!-- WINDOW ACTION -->
+        <record id="semester_action" model="ir.actions.act_window">
+            <field name="name">Semester</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">universitas.semester</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph,kanban,calendar,gantt</field>
+            <field name="search_view_id" ref="universitas_semester_view_search"/>
+            <field name="context">
+                {
+                    'search_default_semester_aktif': 1,
+                    'search_default_semester_type': 1
+                }
+            </field>
+        </record>
+
+        <!-- TREE VIEWS -->
+        <record id="semester_view_tree" model="ir.ui.view">
+            <field name="name">TREE : Semester</field>
+            <field name="model">universitas.semester</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree colors="green:semester_type=='ganjil';red:semester_type=='genap'">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="semester_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- FORM VIEWS -->
+        <record id="universitas_semester_view_form" model="ir.ui.view">
+            <field name="name">universitas.semester form</field>
+            <field name="model">universitas.semester</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="group_1" colspan="4" col="2">
+                        <field name="name"/>
+                        <field name="active"/>
+                        <field name="semester_type"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="note"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
 </openerp>

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+		<!-- SEARCH VIEWS -->
+        <record id="universitas_mata_kuliah_view_search" model="ir.ui.view">
+            <field name="name">universitas.mata_kuliah search</field>
+            <field name="model">universitas.mata_kuliah</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Mata Kuliah">
+					<field name="name" string="Nama Mata Kuliah"/>
+					<field name="kode" string="Kode Mata Kuliah"/>
+					<filter domain="[('sks','&gt;=', 10)]" string="SKS>10"/>
+               </search>
+            </field>
+        </record>
+
 		<!-- WINDOW ACTION -->
 		<record id="mata_kuliah_action" model="ir.actions.act_window">
 		    <field name="name">Mata Kuliah</field>
@@ -8,6 +21,7 @@
 		    <field name="res_model">universitas.mata_kuliah</field>
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="universitas_mata_kuliah_view_search"/>
 		</record>
 
 		<!-- TREE VIEWS -->
@@ -17,8 +31,8 @@
 		    <field name="mode">primary</field>
 		    <field name="arch" type="xml">
 		        <tree>
+					<field name="kode"/>
 		            <field name="name"/>
-		            <field name="kode"/>
 		            <field name="sks"/>                        
 		        </tree>
 		    </field>
@@ -31,16 +45,17 @@
 		    <field name="mode">primary</field>
 		    <field name="arch" type="xml">
 		        <form>
-		            <group name="group_1" colspan="4" col="2">
+		            <group name="group_1" colspan="2" col="2">
+						<field name="kode"/>
 		                <field name="name"/>
 		                <field name="active"/>
 		                <field name="sks"/>
-		                <field name="aktivitas_mk_ids"/>
-		                <field name="keterangan"/>
 		            </group>
+		            <separator colspan="4" string="Aktivitas MK"/>
+	                <field name="aktivitas_mk_ids"/>
+	                <field name="keterangan" placeholder="Additional notes..."/>
 		        </form>
 		    </field>
 		</record>
-
 	</data>
 </openerp>

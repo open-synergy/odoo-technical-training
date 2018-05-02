@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class UniversitasFakultas(models.Model):
@@ -26,4 +26,8 @@ class UniversitasFakultas(models.Model):
 
     keterangan = fields.Text(
         string="Keterangan",
+    )
+
+    image = fields.Binary(
+        string="Image"
     )

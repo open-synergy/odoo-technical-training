@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+        <!-- SEARCH VIEWS -->
+        <record id="universitas_aktivitas_mk_view_search" model="ir.ui.view">
+            <field name="name">universitas.aktivitas_mk search</field>
+            <field name="model">universitas.aktivitas_mk</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Aktivitas MK">
+                    <field name="name" string="Nama Aktivitas MK"/>
+                    <field name="kode" string="Kode"/>
+               </search>
+            </field>
+        </record>
+
+		<!-- WINDOW ACTION -->
 		<record id="universitas_aktivitas_mk_action" model="ir.actions.act_window">
 		    <field name="name">Aktivitas Mata Kuliah</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">universitas.aktivitas_mk</field>
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" ref="universitas_aktivitas_mk_view_search"/>
 		</record>
 
 		<!-- TREE VIEWS -->
@@ -17,7 +31,7 @@
 		    <field name="arch" type="xml">
 		        <tree>
 		            <field name="name"/>
-		            <field name="code"/>
+		            <field name="kode"/>
 		        </tree>
 		    </field>
 		</record>
@@ -30,6 +44,7 @@
 		    <field name="arch" type="xml">
 		        <form>
 		            <group name="group_1" colspan="4" col="2">
+						<field name="kode"/>
 		                <field name="name"/>
 		                <field name="active"/>
 		                <field name="note"/>

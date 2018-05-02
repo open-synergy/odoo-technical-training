@@ -14,6 +14,11 @@ class UniversitasSemester(models.Model):
         required=True,
     )
 
+    kode = fields.Char(
+        string="Kode",
+        required=True
+    )
+
     date_start = fields.Date(
         string="Date Start",
     )

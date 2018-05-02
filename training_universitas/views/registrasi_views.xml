@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+        <!-- SEARCH VIEWS -->
+        <record id="universitas_registrasi_view_search" model="ir.ui.view">
+            <field name="name">universitas.registrasi search</field>
+            <field name="model">universitas.registrasi</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Registrasi">
+                    <field name="name" string="Nama Registrasi"/>
+                    <field name="semester_id" string="Semester"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Semester" context="{'group_by':'semester_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+		<!-- WINDOW ACTION -->
 		<record id="registrasi_action" model="ir.actions.act_window">
 		    <field name="name">Registrasi</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">universitas.registrasi</field>
 		    <field name="view_type">form</field>
 		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" ref="universitas_registrasi_view_search"/>
 		</record>
 
 		<!-- TREE VIEWS -->
