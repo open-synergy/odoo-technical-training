@@ -32,4 +32,5 @@ class UniversitasProgramStudi(models.Model):
     fakultas_id = fields.Many2one(
         string="Fakultas",
         comodel_name="universitas.fakultas",
+        ondelete="restrict",
     )    

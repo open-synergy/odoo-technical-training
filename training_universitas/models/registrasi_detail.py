@@ -18,6 +18,9 @@ class UniversitasRegistrasiDetail(models.Model):
         )
     sks = fields.Integer(
         string="SKS",
+        related="mata_kuliah_id.sks",
+        store=True,
+        readonly=True,
         )
     price_unit = fields.Float(
         string="Amount Total",
@@ -28,4 +31,5 @@ class UniversitasRegistrasiDetail(models.Model):
     registrasi_id = fields.Many2one(
         string="Registrasi",
         comodel_name="universitas.registrasi",
+        on_delete="cascade",
     )    
