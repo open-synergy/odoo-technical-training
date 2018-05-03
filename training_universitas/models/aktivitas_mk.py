@@ -7,7 +7,7 @@ from openerp import models, fields
 
 class UniversitasAktivitasMataKuliah(models.Model):
     _name = "universitas.aktivitas_mk"
-    _description = "Aktivitas Mata Kuliah"
+    _description = "Aktivitas MataKuliah"
 
     name = fields.Char(
         string="Aktivitas Mata Kuliah",
