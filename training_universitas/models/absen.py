@@ -7,7 +7,7 @@ from openerp import models, fields
 
 class UniversitasAbsen(models.Model):
     _name = "universitas.absen"
-    _description = "Absen"
+    _description = "Absensi Mahasiswa"
 
     jadwal_id = fields.Many2one(
         string="Jadwal",
