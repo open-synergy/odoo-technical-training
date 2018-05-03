@@ -9,5 +9,10 @@ from . import (
     program_studi,
     semester,
     registrasi,
-    registrasi_detail
+    registrasi_detail,
+    kelas,
+    jadwal,
+    absen,
+    mahasiswa,
+    dosen
 )

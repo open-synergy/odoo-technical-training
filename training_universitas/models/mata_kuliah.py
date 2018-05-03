@@ -8,10 +8,14 @@ from openerp import models, fields
 class UniversitasMataKuliah(models.Model):
     _name = "universitas.mata_kuliah"
     _description = "Mata Kuliah"
+    _sql_constraints = [
+        ('unique_kode', 'unique (kode)', 'Kode tidak boleh sama'),
+        ]
 
     name = fields.Char(
         string="Mata Kuliah",
         required=True,
+        translate=True,
     )
 
     kode = fields.Char(

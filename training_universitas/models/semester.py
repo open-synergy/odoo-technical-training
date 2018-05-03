@@ -8,6 +8,7 @@ from openerp import models, fields
 class UniversitasSemester(models.Model):
     _name = "universitas.semester"
     _description = "Semester"
+    _order = "date_start desc"
 
     name = fields.Char(
         string="Semester",
@@ -21,10 +22,12 @@ class UniversitasSemester(models.Model):
 
     date_start = fields.Date(
         string="Date Start",
+        copy=False,
     )
 
     date_end = fields.Date(
         string="Date End",
+        copy=False,
     )
 
     semester_type = fields.Selection(

@@ -18,6 +18,11 @@
         "views/fakultas_views.xml",
         "views/program_studi_views.xml",
         "views/mata_kuliah_views.xml",
+        "views/jadwal_views.xml",
+        "views/kelas_views.xml",
+        "views/absen_views.xml",
+        "views/mahasiswa_views.xml",
+        "views/dosen_views.xml",
         "views/menu.xml"
     ],
 }

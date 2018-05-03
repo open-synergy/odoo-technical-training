@@ -9,15 +9,27 @@ class UniversitasRegistrasiDetail(models.Model):
     _name = "universitas.registrasi_detail"
     _description = "Registrasi Detail"
 
+    mata_kuliah_id = fields.Many2one(
+        string="Mata Kuliah",
+        comodel_name="universitas.mata_kuliah",
+        domain=[
+            ("sks",">",0),
+            ],
+        )
+    sks = fields.Integer(
+        string="SKS",
+        related="mata_kuliah_id.sks",
+        store=True,
+        readonly=True,
+        )
     price_unit = fields.Float(
         string="Amount Total",
     )
-
     price_subtotal = fields.Float(
         string="Price Subtotal",
     )
-
     registrasi_id = fields.Many2one(
         string="Registrasi",
         comodel_name="universitas.registrasi",
+        on_delete="cascade",
     )    

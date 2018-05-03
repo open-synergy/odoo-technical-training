@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- SEARCH VIEWS -->
+        <record id="universitas_dosen_view_search" model="ir.ui.view">
+            <field name="name">universitas.dosen search</field>
+            <field name="model">universitas.dosen</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian Dosen">
+                    <field name="kode_dosen" string="Kode Dosen"/>
+                    <field name="name" string="Nama Dosen"/>
+               </search>
+            </field>
+        </record>
+
+		<!-- WINDOW ACTION -->
+		<record id="universitas_dosen_action" model="ir.actions.act_window">
+		    <field name="name">universitas.dosen action</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">universitas.dosen</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" ref="universitas_dosen_view_search"/>
+		</record>
+
+		<!-- TREE VIEWS -->
+		<record id="universitas_dosen_view_tree" model="ir.ui.view">
+		    <field name="name">universitas.dosen tree</field>
+		    <field name="model">universitas.dosen</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <tree>
+		            <field name="kode_dosen"/>
+		            <field name="name"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<!-- FORM VIEWS -->
+		<record id="universitas_dosen_view_form" model="ir.ui.view">
+		    <field name="name">universitas.dosen form</field>
+		    <field name="model">universitas.dosen</field>
+		    <field name="mode">primary</field>
+		    <field name="arch" type="xml">
+		        <form>
+		            <group name="group_1" colspan="4" col="2">
+		                <field name="kode_dosen"/>
+		                <field name="name"/>
+		            </group>
+		        </form>
+		    </field>
+		</record>
+	</data>
+</openerp>

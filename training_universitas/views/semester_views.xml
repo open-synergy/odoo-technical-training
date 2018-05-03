@@ -144,6 +144,7 @@
                 <form>
                     <group name="group_1" colspan="4" col="2">
                         <field name="name"/>
+                        <field name="kode"/>
                         <field name="active"/>
                         <field name="semester_type"/>
                         <field name="date_start"/>
