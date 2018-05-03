@@ -19,3 +19,14 @@ class UniversitasAbsen(models.Model):
         comodel_name="universitas.registrasi_detail",
         required=True
     )
+    
+    state = fields.Selection(
+        string="State",
+        selection=[
+            ("hadir", "Hrdie"),
+            ("izin", "Izin"),
+            ("absen", "Absen")
+        ],
+        default="absen",
+    )
+

@@ -12,5 +12,7 @@ from . import (
     registrasi_detail,
     kelas,
     jadwal,
-    absen
+    absen,
+    mahasiswa,
+    dosen
 )

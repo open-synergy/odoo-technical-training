@@ -25,6 +25,12 @@ class UniversitasKelas(models.Model):
         comodel_name="universitas.mata_kuliah",
         required=True
     )
+    
+    dosen_id = fields.Many2one(
+        string="Kelas",
+        comodel_name="universitas.dosen",
+        required=True
+    )
 
     keterangan = fields.Text(
         string="Keterangan"

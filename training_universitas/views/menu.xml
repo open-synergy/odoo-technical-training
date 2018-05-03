@@ -102,5 +102,21 @@
 			    parent="configuration_root_menu"
 			    action="universitas_absen_action"
 		    />
+		    
+			<!-- MAHASISWA -->
+			<menuitem
+			    id="mahasiswa_menu"
+			    name="Mahasiswa"
+			    parent="configuration_root_menu"
+			    action="universitas_mahasiswa_action"
+		    />
+
+			<!-- DOSEN -->
+			<menuitem
+			    id="dosen_menu"
+			    name="Dosen"
+			    parent="configuration_root_menu"
+			    action="universitas_dosen_action"
+		    />
 	</data>
 </openerp>

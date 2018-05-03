@@ -9,11 +9,6 @@ class UniversitasJadwal(models.Model):
     _name = "universitas.jadwal"
     _description = "Jadwal"
 
-    name = fields.Char(
-        string="Jadwal",
-        required=True
-    )
-
     kelas_id = fields.Many2one(
         string="Kelas",
         required=True

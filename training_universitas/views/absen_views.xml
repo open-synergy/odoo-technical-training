@@ -45,6 +45,9 @@
 		    <field name="mode">primary</field>
 		    <field name="arch" type="xml">
 		        <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="hadir,absen,izin"/>
+                </header>
 		            <group name="group_1" colspan="4" col="2">
 			            <field name="jadwal_id"/>
 			            <field name="registrasi_detail_id"/>

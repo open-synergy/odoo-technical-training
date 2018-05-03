@@ -13,13 +13,21 @@ class UniversitasRegistrasi(models.Model):
         string="# Registrasi",
         required=True,
     )
+    mahasiswa_id = fields.Many2one(
+        string="Mahasiswa",
+        comodel_name="universitas.mahasiswa"
+    )
     semester_id =  fields.Many2one(
         string="Semester",
         comodel_name="universitas.semester"
     )
     amount_total = fields.Float(
         string="Amount Total",
+        digits=(16,3),
     )
+    total_sks = fields.Float(
+        string="Total SKS",
+        )
     detail_ids = fields.One2many(
         string="Detail",
         comodel_name="universitas.registrasi_detail",

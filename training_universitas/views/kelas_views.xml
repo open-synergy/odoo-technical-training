@@ -38,6 +38,7 @@
 		            <field name="name"/>
 		            <field name="semester_id"/>
 		            <field name="mata_kuliah_id"/>
+                    <field name="dosen_id"/>
 		        </tree>
 		    </field>
 		</record>
@@ -53,6 +54,7 @@
 			            <field name="name"/>
 			            <field name="semester_id"/>
 			            <field name="mata_kuliah_id"/>
+                        <field name="dosen_id"/>
 			            <field name="active"/>
 		            </group>
 					<field name="keterangan" placeholder="Keterangan.."/>
