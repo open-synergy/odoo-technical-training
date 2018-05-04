@@ -23,10 +23,17 @@ class UniversitasRegistrasi(models.Model):
     name = fields.Char(
         string="# Registrasi",
         required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+                ],
+            },
     )
     mahasiswa_id = fields.Many2one(
         string="Mahasiswa",
         comodel_name="universitas.mahasiswa"
+
     )
     semester_id =  fields.Many2one(
         string="Semester",
@@ -45,3 +52,36 @@ class UniversitasRegistrasi(models.Model):
         comodel_name="universitas.registrasi_detail",
         inverse_name="registrasi_id",
     )
+    state = fields.Selection(
+        string="State",
+        selection=[
+            ("draft", "Draft"),
+            ("confirm", "Waiting for Approval"),
+            ("approve", "Approve"),
+            ("cancel", "Cancel"),
+            ],
+        required=True,
+        default="draft",
+        )
+
+    @api.multi
+    def button_confirm(self):
+        for registrasi in self:
+            registrasi.write({"state": "confirm"})
+
+    @api.multi
+    def button_approve(self):
+        for registrasi in self:
+            registrasi.write({"state": "approve"})
+
+    @api.multi
+    def button_cancel(self):
+        for registrasi in self:
+            registrasi.write({"state": "cancel"})
+
+    @api.multi
+    def button_restart(self):
+        for registrasi in self:
+            registrasi.write({"state": "draft"})
+
+

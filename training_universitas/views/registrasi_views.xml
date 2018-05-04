@@ -37,6 +37,7 @@
 		            <field name="mahasiswa_id"/>
 		            <field name="amount_total"/>
 		            <field name="semester_id"/>
+                    <field name="state"/>
 		        </tree>
 		    </field>
 		</record>
@@ -49,29 +50,38 @@
 		    <field name="mode">primary</field>
 		    <field name="arch" type="xml">
 		        <form>
-		            <group name="group_1" colspan="4" col="2">
-			            <field name="name" string="Registrasi Mahasiswa"/>
-						<field name="mahasiswa_id"/>
-						<field name="semester_id"/>
-			            <field name="amount_total"/>
-                        <field name="total_sks"/>
-			            <field name="detail_ids">
-			            	<tree editable="bottom">
-                                <field name="mata_kuliah_id"/>
-                                <field name="sks"/>
-		            			<field name="price_unit"/>
-		            			<field name="price_subtotal"/>
-		            		</tree>
-		            		<form>
-		            			<group name="group_2">
+                    <header>
+                        <button string="Confirm" type="object" name="button_confirm" states="draft"/>
+                        <button string="Approve" type="object" name="button_approve" states="confirm"/>
+                        <button string="Cancel" type="object" name="button_cancel" states="draft,confirm,approve"/>
+                        <button string="Restart" type="object" name="button_restart" states="cancel"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group name="group_1" colspan="4" col="2">
+                            <field name="name" string="Registrasi Mahasiswa"/>
+                            <field name="mahasiswa_id"/>
+                            <field name="semester_id"/>
+                            <field name="amount_total"/>
+                            <field name="total_sks"/>
+                            <field name="detail_ids">
+                                <tree editable="bottom">
                                     <field name="mata_kuliah_id"/>
                                     <field name="sks"/>
-		            				<field name="price_unit"/>
-		            				<field name="price_subtotal"/>
-	            				</group>
-	            			</form>
-		            	</field>
-		            </group>
+                                    <field name="price_unit"/>
+                                    <field name="price_subtotal"/>
+                                </tree>
+                                <form>
+                                    <group name="group_2">
+                                        <field name="mata_kuliah_id"/>
+                                        <field name="sks"/>
+                                        <field name="price_unit"/>
+                                        <field name="price_subtotal"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
 		        </form>
 		    </field>
 		</record>

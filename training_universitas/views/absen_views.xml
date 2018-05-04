@@ -17,7 +17,7 @@
 
 		<!-- WINDOW ACTION -->
 		<record id="universitas_absen_action" model="ir.actions.act_window">
-		    <field name="name">universitas.absen action</field>
+		    <field name="name">Absensi Mahasiswa</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">universitas.absen</field>
 		    <field name="view_type">form</field>
