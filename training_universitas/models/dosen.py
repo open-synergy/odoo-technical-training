@@ -18,4 +18,11 @@ class UniversitasDosen(models.Model):
         string="Jadwal",
         required=True
     )
+    mata_kuliah_ids = fields.Many2many(
+        string="Mata Kuliah",
+        comodel_name="universitas.mata_kuliah",
+        relation="rel_mata_kuliah_2_dosen",
+        column1="dosen_id",
+        column2="mata_kuliah_id",
+        )
 

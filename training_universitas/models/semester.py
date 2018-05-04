@@ -2,7 +2,8 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api
+from openerp.exceptions import Warning as UserError
 
 
 class UniversitasSemester(models.Model):
@@ -48,3 +49,14 @@ class UniversitasSemester(models.Model):
         string="Active",
         default=True
     )
+
+    @api.constrains(
+        "date_start", "date_end",
+        )
+    def _check_date(self):
+        if self.date_start >= self.date_end and \
+                self.date_start and \
+                self.date_end:
+            raise UserError("Tanggal mulai harus lebih kecil dari tanggal selesai")
+
+

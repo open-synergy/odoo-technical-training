@@ -30,6 +30,7 @@ class UniversitasMataKuliah(models.Model):
 
     sks = fields.Integer(
         string="SKS",
+        company_dependent=True,
     )
 
     keterangan = fields.Text(
@@ -43,3 +44,10 @@ class UniversitasMataKuliah(models.Model):
         column1="mata_kuliah_id",
         column2="aktivitas_id",
     )
+    dosen_ids = fields.Many2many(
+        string="Dosen",
+        comodel_name="universitas.dosen",
+        relation="rel_mata_kuliah_2_dosen",
+        column1="mata_kuliah_id",
+        column2="dosen_id",
+        )

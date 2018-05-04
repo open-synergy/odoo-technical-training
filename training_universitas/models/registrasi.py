@@ -2,12 +2,23 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class UniversitasRegistrasi(models.Model):
     _name = "universitas.registrasi"
     _description = "Registrasi"
+
+    @api.multi
+    @api.depends(
+        "detail_ids",
+        "detail_ids.sks",
+        )
+    def _compute_sks(self):
+        for registrasi in self:
+            registrasi.total_sks = 0
+            for detail in registrasi.detail_ids:
+                registrasi.total_sks +=  detail.sks
 
     name = fields.Char(
         string="# Registrasi",
@@ -27,6 +38,7 @@ class UniversitasRegistrasi(models.Model):
     )
     total_sks = fields.Float(
         string="Total SKS",
+        compute="_compute_sks",
         )
     detail_ids = fields.One2many(
         string="Detail",

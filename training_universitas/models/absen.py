@@ -12,6 +12,7 @@ class UniversitasAbsen(models.Model):
     jadwal_id = fields.Many2one(
         string="Jadwal",
         required=True,
+        comodel_name="universitas.jadwal",
     )
 
     registrasi_detail_id = fields.Many2one(
@@ -23,7 +24,7 @@ class UniversitasAbsen(models.Model):
     state = fields.Selection(
         string="State",
         selection=[
-            ("hadir", "Hrdie"),
+            ("hadir", "Hadir"),
             ("izin", "Izin"),
             ("absen", "Absen")
         ],

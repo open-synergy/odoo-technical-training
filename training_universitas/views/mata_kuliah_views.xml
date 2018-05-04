@@ -51,9 +51,17 @@
 		                <field name="active"/>
 		                <field name="sks"/>
 		            </group>
-		            <separator colspan="4" string="Aktivitas MK"/>
-	                <field name="aktivitas_mk_ids"/>
-	                <field name="keterangan" placeholder="Additional notes..."/>
+                    <notebook>
+                        <page name="aktivitas" string="Aktivitas">
+                            <field name="aktivitas_mk_ids"/>
+                        </page>
+                        <page name="dosen" string="Dosen">
+                            <field name="dosen_ids"/>
+                        </page>
+                        <page name="keterangan" string="Keterangan">
+                            <field name="keterangan" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
 		        </form>
 		    </field>
 		</record>

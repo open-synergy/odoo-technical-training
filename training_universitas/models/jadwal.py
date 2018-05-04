@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class UniversitasJadwal(models.Model):
@@ -11,7 +11,8 @@ class UniversitasJadwal(models.Model):
 
     kelas_id = fields.Many2one(
         string="Kelas",
-        required=True
+        required=True,
+        comodel_name="universitas.kelas",
     )
 
     date_start = fields.Datetime(
@@ -32,3 +33,12 @@ class UniversitasJadwal(models.Model):
         string="Active",
         default=True
     )
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for jadwal in self:
+            name = "%s %s S.D. %s" % (jadwal.kelas_id.name, jadwal.date_start, jadwal.date_end)
+            result.append((jadwal.id, name))
+        return result
+

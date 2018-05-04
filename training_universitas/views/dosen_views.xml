@@ -47,6 +47,11 @@
 		                <field name="kode_dosen"/>
 		                <field name="name"/>
 		            </group>
+                    <notebook>
+                        <page name="mata_kuliah" string="Mata Kuliah">
+                            <field name="mata_kuliah_ids"/>
+                        </page>
+                    </notebook>
 		        </form>
 		    </field>
 		</record>

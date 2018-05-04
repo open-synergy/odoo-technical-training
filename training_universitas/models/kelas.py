@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class UniversitasKelas(models.Model):
@@ -27,7 +27,7 @@ class UniversitasKelas(models.Model):
     )
     
     dosen_id = fields.Many2one(
-        string="Kelas",
+        string="Dosen",
         comodel_name="universitas.dosen",
         required=True
     )
@@ -40,3 +40,23 @@ class UniversitasKelas(models.Model):
         string="Active",
         default=True
     )
+
+    @api.onchange(
+        "mata_kuliah_id",
+        )
+    def _onchange_dosen(self):
+        self.dosen_id = False
+        kriteria = {}
+        if self.mata_kuliah_id.dosen_ids:
+            self.dosen_id = self.mata_kuliah_id.dosen_ids[0]
+            kriteria.update({
+                "dosen_id": [
+                    ("id", "in", self.mata_kuliah_id.dosen_ids.ids),
+                    ],
+                })
+
+        return {
+            "domain": kriteria,
+            }
+
+
