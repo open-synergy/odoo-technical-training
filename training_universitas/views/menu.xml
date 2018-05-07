@@ -23,6 +23,27 @@
 				    action="registrasi_action"
 			    />
 
+    <menuitem
+        id="jadwal_root_menu"
+        name="Jadwal"
+        parent="universitas_root_menu"
+    />
+
+			<!-- KELAS -->
+			<menuitem
+			    id="kelas_menu"
+			    name="Kelas"
+			    parent="jadwal_root_menu"
+				action="universitas_kelas_action"
+		    />
+
+			<!-- JADWAL -->
+			<menuitem
+			    id="jadwal_menu"
+			    name="Jadwal"
+			    parent="jadwal_root_menu"
+			    action="universitas_jadwal_action"
+		    />
 		<!-- REPORT-->
 		<menuitem
 		    id="report_root_menu"
@@ -79,21 +100,6 @@
 			    action="universitas_aktivitas_mk_action"
 		    />
 
-			<!-- KELAS -->
-			<menuitem
-			    id="kelas_menu"
-			    name="Kelas"
-			    parent="configuration_root_menu"
-				action="universitas_kelas_action"
-		    />
-
-			<!-- JADWAL -->
-			<menuitem
-			    id="jadwal_menu"
-			    name="Jadwal"
-			    parent="configuration_root_menu"
-			    action="universitas_jadwal_action"
-		    />
 
 			<!-- ABSEN -->
 			<menuitem

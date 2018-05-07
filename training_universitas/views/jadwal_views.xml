@@ -17,7 +17,7 @@
 
 		<!-- WINDOW ACTION -->
 		<record id="universitas_jadwal_action" model="ir.actions.act_window">
-		    <field name="name">universitas.jadwal action</field>
+		    <field name="name">Jadwal</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">universitas.jadwal</field>
 		    <field name="view_type">form</field>

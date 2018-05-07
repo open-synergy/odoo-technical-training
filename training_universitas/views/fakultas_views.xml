@@ -15,7 +15,7 @@
 
 		<!-- KANBAN VIEWS -->
         <record id="fakultas_view_kanban" model="ir.ui.view">
-		    <field name="name">universitas.fakultas kanban</field>
+		    <field name="name">Fakultas</field>
 		    <field name="model">universitas.fakultas</field>
             <field name="arch" type="xml">
                 <kanban>

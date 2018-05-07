@@ -12,6 +12,7 @@
         "base",
     ],
     "data": [
+        "wizards/cancel_reason_views.xml",
         "views/aktivitas_mk_views.xml",
         "views/registrasi_views.xml",
         "views/semester_views.xml",

@@ -35,8 +35,9 @@
 		        <tree>
 		            <field name="name"/>
 		            <field name="mahasiswa_id"/>
-		            <field name="amount_total"/>
 		            <field name="semester_id"/>
+                    <field name="total_sks"/>
+		            <field name="amount_total"/>
                     <field name="state"/>
 		        </tree>
 		    </field>
@@ -53,33 +54,45 @@
                     <header>
                         <button string="Confirm" type="object" name="button_confirm" states="draft"/>
                         <button string="Approve" type="object" name="button_approve" states="confirm"/>
-                        <button string="Cancel" type="object" name="button_cancel" states="draft,confirm,approve"/>
+                        <button string="Cancel" type="action" name="%(training_universitas.universitas_registrasi_cancel_reason_action)d" states="draft,confirm,approve"/>
                         <button string="Restart" type="object" name="button_restart" states="cancel"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
                         <group name="group_1" colspan="4" col="2">
-                            <field name="name" string="Registrasi Mahasiswa"/>
                             <field name="mahasiswa_id"/>
                             <field name="semester_id"/>
-                            <field name="amount_total"/>
-                            <field name="total_sks"/>
-                            <field name="detail_ids">
-                                <tree editable="bottom">
-                                    <field name="mata_kuliah_id"/>
-                                    <field name="sks"/>
-                                    <field name="price_unit"/>
-                                    <field name="price_subtotal"/>
-                                </tree>
-                                <form>
-                                    <group name="group_2">
+                        </group>
+                        <notebook>
+                            <page name="detail" string="Pengambilan Mata Kuliah">
+                                <field name="detail_ids">
+                                    <tree editable="bottom">
                                         <field name="mata_kuliah_id"/>
                                         <field name="sks"/>
                                         <field name="price_unit"/>
                                         <field name="price_subtotal"/>
-                                    </group>
-                                </form>
-                            </field>
+                                    </tree>
+                                    <form>
+                                        <group name="group_2">
+                                            <field name="mata_kuliah_id"/>
+                                            <field name="sks"/>
+                                            <field name="price_unit"/>
+                                            <field name="price_subtotal"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="cancel_reason" string="Cancel Reason">
+                                <field name="cancel_reason" colspan="4" nolabel="1"/>
+                            </page>
+                        </notebook>
+                        <group name="group_2" colspan="4" col="2">
+                            <field name="amount_total"/>
+                            <field name="total_sks"/>
                         </group>
                     </sheet>
 		        </form>

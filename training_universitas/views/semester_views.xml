@@ -84,7 +84,7 @@
 
         <!-- CALENDAR VIEWS -->
         <record id="universitas_semester_view_calendar" model="ir.ui.view">
-            <field name="name">universitas.semester calendar</field>
+            <field name="name">Semester</field>
             <field name="model">universitas.semester</field>
             <field name="arch" type="xml">
                 <calendar string="Semester" color="semester_type" date_start="date_start" date_stop="date_end">

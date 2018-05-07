@@ -15,7 +15,7 @@
 
 		<!-- WINDOW ACTION -->
 		<record id="universitas_mahasiswa_action" model="ir.actions.act_window">
-		    <field name="name">universitas.mahasiswa action</field>
+		    <field name="name">Mahasiswa</field>
 		    <field name="type">ir.actions.act_window</field>
 		    <field name="res_model">universitas.mahasiswa</field>
 		    <field name="view_type">form</field>

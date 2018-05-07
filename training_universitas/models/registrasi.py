@@ -32,12 +32,26 @@ class UniversitasRegistrasi(models.Model):
     )
     mahasiswa_id = fields.Many2one(
         string="Mahasiswa",
-        comodel_name="universitas.mahasiswa"
+        comodel_name="universitas.mahasiswa",
+        required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+                ],
+            },
 
     )
     semester_id =  fields.Many2one(
         string="Semester",
-        comodel_name="universitas.semester"
+        comodel_name="universitas.semester",
+        required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+                ],
+            },
     )
     amount_total = fields.Float(
         string="Amount Total",
@@ -51,6 +65,13 @@ class UniversitasRegistrasi(models.Model):
         string="Detail",
         comodel_name="universitas.registrasi_detail",
         inverse_name="registrasi_id",
+        required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+                ],
+            },
     )
     state = fields.Selection(
         string="State",
@@ -62,6 +83,11 @@ class UniversitasRegistrasi(models.Model):
             ],
         required=True,
         default="draft",
+        readonly=True,
+        )
+    cancel_reason = fields.Text(
+        string="Cancel Reason",
+        readonly=True,
         )
 
     @api.multi
