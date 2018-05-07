@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="universitas_fakultas_view_form" model="ir.ui.view">
+		    <field name="name">universitas.fakultas form</field>
+		    <field name="model">universitas.fakultas</field>
+            <field name="inherit_id" ref="training_universitas.universitas_fakultas_view_form"/>
+		    <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="after">
+                        <field name="pricelist_id"/>
+                    </xpath>
+                </data>
+		    </field>
+		</record>
+	</data>
+</openerp>
