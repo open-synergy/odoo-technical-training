@@ -36,8 +36,7 @@
 		        <tree>
 		            <field name="name"/>
 		            <field name="kode"/>
-		            <field name="keterangan"/>                        
-		            <field name="active"/>
+                    <field name="fakultas_id"/>
 		        </tree>
 		    </field>
 		</record>

@@ -17,7 +17,6 @@ class UniversitasRegistrasiCancelReason(models.TransientModel):
     @api.multi
     def action_confirm(self):
         self.ensure_one()
-        # raise UserError(str(self._context))
         registrasi_id = self._context.get("active_id", False)
         registrasi = self.env["universitas.registrasi"].browse([registrasi_id])[0]
         registrasi.write({

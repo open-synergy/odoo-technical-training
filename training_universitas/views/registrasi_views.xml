@@ -26,6 +26,16 @@
 		    <field name="search_view_id" ref="universitas_registrasi_view_search"/>
 		</record>
 
+		<record id="registrasi_by_mhs_action" model="ir.actions.act_window">
+		    <field name="name">Registrasi</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">universitas.registrasi</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="search_view_id" ref="universitas_registrasi_view_search"/>
+            <field name="domain">[('mahasiswa_id','=',active_id)]</field>
+		</record>
+
 		<!-- TREE VIEWS -->
 		<record id="registrasi_view_tree" model="ir.ui.view">
 		    <field name="name">TREE : Registrasi</field>
@@ -35,6 +45,8 @@
 		        <tree>
 		            <field name="name"/>
 		            <field name="mahasiswa_id"/>
+                    <field name="fakultas_id"/>
+                    <field name="program_studi_id"/>
 		            <field name="semester_id"/>
                     <field name="total_sks"/>
 		            <field name="amount_total"/>
@@ -52,8 +64,8 @@
 		    <field name="arch" type="xml">
 		        <form>
                     <header>
-                        <button string="Confirm" type="object" name="button_confirm" states="draft"/>
-                        <button string="Approve" type="object" name="button_approve" states="confirm"/>
+                        <button string="Confirm" type="object" name="button_confirm" states="draft" class="oe_highlight"/>
+                        <button string="Approve" type="object" name="button_approve" states="confirm" class="oe_highlight"/>
                         <button string="Cancel" type="action" name="%(training_universitas.universitas_registrasi_cancel_reason_action)d" states="draft,confirm,approve"/>
                         <button string="Restart" type="object" name="button_restart" states="cancel"/>
                         <field name="state" widget="statusbar"/>

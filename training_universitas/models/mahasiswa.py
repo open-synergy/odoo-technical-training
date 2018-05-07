@@ -15,7 +15,17 @@ class UniversitasMahasisa(models.Model):
     )
 
     name = fields.Char(
-        string="Jadwal",
+        string="Name",
         required=True
     )
+    program_studi_id = fields.Many2one(
+        string="Program Studi",
+        comodel_name="universitas.program_studi",
+        )
+    fakultas_id = fields.Many2one(
+        string="Fakultas",
+        comodel_name="universitas.fakultas",
+        related="program_studi_id.fakultas_id",
+        store=True,
+        )
 

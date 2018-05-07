@@ -32,6 +32,8 @@
 		        <tree>
 		            <field name="nim"/>
 		            <field name="name"/>
+                    <field name="fakultas_id"/>
+                    <field name="program_studi_id"/>
 		        </tree>
 		    </field>
 		</record>
@@ -43,9 +45,17 @@
 		    <field name="mode">primary</field>
 		    <field name="arch" type="xml">
 		        <form>
+                    <header>
+                        <button name="%(training_universitas.registrasi_by_mhs_action)d"
+                            string="Registrasi"
+                            groups="training_universitas.group_akademik"
+                            type="action"/>
+                    </header>
 		            <group name="group_1" colspan="4" col="2">
 		                <field name="nim"/>
 		                <field name="name"/>
+                        <field name="program_studi_id"/>
+                        <field name="fakultas_id"/>
 		            </group>
 		        </form>
 		    </field>

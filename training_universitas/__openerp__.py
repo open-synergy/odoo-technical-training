@@ -12,6 +12,7 @@
         "base",
     ],
     "data": [
+        "security/res_groups_data.xml",
         "wizards/cancel_reason_views.xml",
         "views/aktivitas_mk_views.xml",
         "views/registrasi_views.xml",

@@ -42,6 +42,20 @@ class UniversitasRegistrasi(models.Model):
             },
 
     )
+    program_studi_id = fields.Many2one(
+        string="Program Studi",
+        comodel_name="universitas.program_studi",
+        related="mahasiswa_id.program_studi_id",
+        store=True,
+        readonly=True,
+        )
+    fakultas_id = fields.Many2one(
+        string="Fakultas",
+        comodel_name="universitas.fakultas",
+        related="mahasiswa_id.fakultas_id",
+        store=True,
+        readonly=True,
+        )
     semester_id =  fields.Many2one(
         string="Semester",
         comodel_name="universitas.semester",

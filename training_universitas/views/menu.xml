@@ -13,6 +13,7 @@
 			    id="registrasi_root_menu"
 			    name="Registrasi"
 			    parent="universitas_root_menu"
+			    sequence="1"
 		    />
 
 				<!-- REGISTRASI -->
@@ -27,6 +28,8 @@
         id="jadwal_root_menu"
         name="Jadwal"
         parent="universitas_root_menu"
+        sequence="2"
+        groups="training_universitas.group_akademik"
     />
 
 			<!-- KELAS -->
@@ -44,12 +47,35 @@
 			    parent="jadwal_root_menu"
 			    action="universitas_jadwal_action"
 		    />
+    <menuitem
+        id="civitas_root_menu"
+        name="Civitas Akademika"
+        parent="universitas_root_menu"
+        sequence="3"
+    />
+    		    
+			<!-- MAHASISWA -->
+			<menuitem
+			    id="mahasiswa_menu"
+			    name="Mahasiswa"
+			    parent="civitas_root_menu"
+			    action="universitas_mahasiswa_action"
+		    />
+
+			<!-- DOSEN -->
+			<menuitem
+			    id="dosen_menu"
+			    name="Dosen"
+			    parent="civitas_root_menu"
+			    action="universitas_dosen_action"
+		    />
+		    		    
 		<!-- REPORT-->
 		<menuitem
 		    id="report_root_menu"
 		    name="Report"
 		    parent="universitas_root_menu"
-		    sequence="2"
+		    sequence="98"
 	    />
 
 		<!-- CONFIGURATION-->
@@ -109,20 +135,6 @@
 			    action="universitas_absen_action"
 		    />
 		    
-			<!-- MAHASISWA -->
-			<menuitem
-			    id="mahasiswa_menu"
-			    name="Mahasiswa"
-			    parent="configuration_root_menu"
-			    action="universitas_mahasiswa_action"
-		    />
 
-			<!-- DOSEN -->
-			<menuitem
-			    id="dosen_menu"
-			    name="Dosen"
-			    parent="configuration_root_menu"
-			    action="universitas_dosen_action"
-		    />
 	</data>
 </openerp>
