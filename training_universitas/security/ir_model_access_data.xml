@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record id="access_mahasiswa_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.mahasiswa untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_mahasiswa"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_mahasiswa_akademik" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.mahasiswa untuk group akademik</field>
+    <field name="model_id" ref="training_universitas.model_universitas_mahasiswa"/>
+    <field name="group_id" ref="training_universitas.group_akademik"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_unlink" eval="1"/>
+</record>
+</data>
+</openerp>
