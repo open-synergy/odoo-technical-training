@@ -7,18 +7,19 @@ from openerp import models, fields, api
 
 class UniversitasFakultas(models.Model):
     _name = "universitas.fakultas"
+    _inherits = {"hr.department":"department_id"}
     _description = "Fakultas"
 
-    name = fields.Char(
-        string="Fakultas",
+    department_id = fields.Many2one(
+        string="Department",
+        comodel_name="hr.department",
         required=True,
-    )
-
+        ondelete="cascade",
+        )
     kode = fields.Char(
         string="Kode",
         required=True,
     )
-
     active = fields.Boolean(
         string="Active",
         default=True,
