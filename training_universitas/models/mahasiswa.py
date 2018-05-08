@@ -2,18 +2,19 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api
+from openerp.exceptions import Warning as UserError
 
 
-class UniversitasMahasisa(models.Model):
+class UniversitasMahasiswa(models.Model):
     _name = "universitas.mahasiswa"
     _description = "Mahasiswa"
 
     nim = fields.Char(
         string="NIM",
-        required=True
+        required=True,
+        default="/",
     )
-
     name = fields.Char(
         string="Name",
         required=True
@@ -29,3 +30,14 @@ class UniversitasMahasisa(models.Model):
         store=True,
         )
 
+    @api.model
+    def create(self, values):
+        # raise UserError(str(values))
+        nim = values.get("nim", False)
+        program_studi_id = values.get("program_studi_id", False)
+        if not nim or nim == "/":
+                prodi = self.env["universitas.program_studi"].\
+                    browse([program_studi_id])[0]
+                values["nim"] = self.env["ir.sequence"].\
+                    next_by_id(prodi.nim_sequence_id.id)
+        return super(UniversitasMahasiswa, self).create(values)

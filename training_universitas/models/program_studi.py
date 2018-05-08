@@ -19,6 +19,11 @@ class UniversitasProgramStudi(models.Model):
         string="Kode",
         required=True,
     )
+    nim_sequence_id = fields.Many2one(
+        string="NIM Sequence",
+        comodel_name="ir.sequence",
+        company_dependent=True,
+        )
 
     active = fields.Boolean(
         string="Active",

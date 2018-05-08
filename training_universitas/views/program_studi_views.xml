@@ -50,6 +50,8 @@
 		        <form>
 		            <group name="group_1" colspan="4" col="2">
 		                <field name="name"/>
+                        <field name="kode"/>
+                        <field name="nim_sequence_id"/>
 		                <field name="active"/>
 		                <field name="fakultas_id"/>
 		                <field name="keterangan"/>
