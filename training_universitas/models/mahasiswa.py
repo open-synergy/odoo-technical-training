@@ -14,6 +14,7 @@ class UniversitasMahasiswa(models.Model):
         string="NIM",
         required=True,
         default="/",
+        copy=False,
     )
     name = fields.Char(
         string="Name",
@@ -41,3 +42,7 @@ class UniversitasMahasiswa(models.Model):
                 values["nim"] = self.env["ir.sequence"].\
                     next_by_id(prodi.nim_sequence_id.id)
         return super(UniversitasMahasiswa, self).create(values)
+
+    @api.multi
+    def copy(self, values):
+        raise UserError("No Copy")

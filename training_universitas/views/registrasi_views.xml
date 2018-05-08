@@ -105,6 +105,7 @@
                         <group name="group_2" colspan="4" col="2">
                             <field name="amount_total"/>
                             <field name="total_sks"/>
+                            <field name="amount_to_text"/>
                         </group>
                     </sheet>
 		        </form>

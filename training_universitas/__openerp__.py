@@ -10,6 +10,7 @@
     "installable": True,
     "depends": [
         "hr",
+        "base_amount_to_text",
     ],
     "data": [
         "security/res_groups_data.xml",

@@ -17,8 +17,14 @@ class UniversitasRegistrasi(models.Model):
     def _compute_sks(self):
         for registrasi in self:
             registrasi.total_sks = 0
+            registrasi.amount_total = 0.0
             for detail in registrasi.detail_ids:
                 registrasi.total_sks +=  detail.sks
+                registrasi.amount_total += detail.price_subtotal
+            registrasi.amount_to_text = self.env["base.amount_to_text"].get(
+                registrasi.amount_total, 
+                self.env.ref("base.EUR"), 
+                False)
 
     name = fields.Char(
         string="# Registrasi",
@@ -70,6 +76,8 @@ class UniversitasRegistrasi(models.Model):
     amount_total = fields.Float(
         string="Amount Total",
         digits=(16,3),
+        compute="_compute_sks",
+        store=True,
     )
     total_sks = fields.Float(
         string="Total SKS",
@@ -103,6 +111,11 @@ class UniversitasRegistrasi(models.Model):
         string="Cancel Reason",
         readonly=True,
         )
+    amount_to_text = fields.Text(
+        string="Amount to Text",
+        compute="_compute_sks",
+        )
+
 
     @api.multi
     def button_confirm(self):
