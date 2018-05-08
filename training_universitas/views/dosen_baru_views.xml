@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="universitas_dosen_baru_view_form" model="ir.ui.view">
+		    <field name="name">universitas.dosen_baru form</field>
+		    <field name="model">universitas.dosen_baru</field>
+		    <field name="mode">primary</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+		    <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//label[@for='category_ids']" position="before">
+                        <label for="kode_dosen"/>
+                        <field name="kode_dosen"/>
+                    </xpath>
+                    <xpath expr="//label[@for='name']" position="attributes">
+                        <attribute name="string">Nama Dosen</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='address_id']" position="attributes">
+                        <attribute name="on_change"></attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='department_id']" position="attributes">
+                        <attribute name="on_change"></attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='company_id']" position="attributes">
+                        <attribute name="on_change"></attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='user_id']" position="attributes">
+                        <attribute name="on_change"></attribute>
+                    </xpath>
+                </data>
+		    </field>
+		</record>
+
+		<record id="universitas_dosen_baru_view_tree" model="ir.ui.view">
+		    <field name="name">universitas.dosen_baru tree</field>
+		    <field name="model">universitas.dosen_baru</field>
+		    <field name="mode">primary</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+		    <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="attributes">
+                        <attribute name="string">Nama Dosen</attribute>
+                    </xpath>
+                </data>
+		    </field>
+		</record>
+
+		<record id="universitas_dosen_baru_action" model="ir.actions.act_window">
+		    <field name="name">Dosen Baru</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">universitas.dosen_baru</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+		</record>
+	</data>
+</openerp>

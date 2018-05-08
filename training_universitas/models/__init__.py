@@ -14,5 +14,6 @@ from . import (
     jadwal,
     absen,
     mahasiswa,
-    dosen
+    dosen,
+    dosen_baru
 )

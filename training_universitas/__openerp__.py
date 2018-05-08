@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": [
-        "base",
+        "hr",
     ],
     "data": [
         "security/res_groups_data.xml",
@@ -25,6 +25,7 @@
         "views/absen_views.xml",
         "views/mahasiswa_views.xml",
         "views/dosen_views.xml",
+        "views/dosen_baru_views.xml",
         "views/menu.xml"
     ],
 }

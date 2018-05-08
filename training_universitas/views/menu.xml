@@ -69,6 +69,13 @@
 			    parent="civitas_root_menu"
 			    action="universitas_dosen_action"
 		    />
+
+			<menuitem
+			    id="dosen_baru_menu"
+			    name="Dosen Baru"
+			    parent="civitas_root_menu"
+			    action="universitas_dosen_baru_action"
+		    />
 		    		    
 		<!-- REPORT-->
 		<menuitem
