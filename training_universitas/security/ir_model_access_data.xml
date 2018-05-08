@@ -19,5 +19,113 @@
     <field name="perm_write" eval="1"/>
     <field name="perm_unlink" eval="1"/>
 </record>
+
+<record id="access_fakultas_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.fakultas untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_fakultas"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_program_studi_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.program_studi untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_program_studi"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_mata_kuliah_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.mata_kuliah untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_mata_kuliah"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_aktivitas_mk_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.aktivitas_mk untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_aktivitas_mk"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_registrasi_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.registrasi untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_registrasi"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_registrasi_detail_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.registrasi_detail untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_registrasi_detail"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_kelas_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.kelas untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_kelas"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_jadwal_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.jadwal untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_jadwal"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_absen_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.absen untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_absen"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_semester_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.semester untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_semester"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_dosen_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.dosen untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_dosen"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
+<record id="access_dosen_baru_all" model="ir.model.access">
+    <field name="name">Akses Ke obj universitas.dosen_baru untuk semua user</field>
+    <field name="model_id" ref="training_universitas.model_universitas_dosen_baru"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
 </data>
 </openerp>
