@@ -35,6 +35,7 @@ class UniversitasRegistrasi(models.Model):
                 ("readonly", False),
                 ],
             },
+        default="/",
     )
     mahasiswa_id = fields.Many2one(
         string="Mahasiswa",
@@ -120,6 +121,16 @@ class UniversitasRegistrasi(models.Model):
         comodel_name="product.pricelist",
         )
 
+    @api.model
+    def create(self, values):
+        semester_id = values.get("semester_id", False)
+        name = values.get("name", False)
+        if not name or name == "/":
+                semester = self.env["universitas.semester"].\
+                    browse([semester_id])[0]
+                values["name"] = self.env["ir.sequence"].\
+                    next_by_id(semester.registrasi_sequence_id.id)
+        return super(UniversitasRegistrasi, self).create(values)
 
     @api.multi
     def button_confirm(self):

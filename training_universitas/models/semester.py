@@ -49,6 +49,10 @@ class UniversitasSemester(models.Model):
         string="Active",
         default=True
     )
+    registrasi_sequence_id = fields.Many2one(
+        string="Registrasi Sequence",
+        comodel_name="ir.sequence",
+        )
 
     @api.constrains(
         "date_start", "date_end",
