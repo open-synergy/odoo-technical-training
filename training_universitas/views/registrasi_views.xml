@@ -68,6 +68,7 @@
                         <button string="Approve" type="object" name="button_approve" states="confirm" class="oe_highlight"/>
                         <button string="Cancel" type="action" name="%(training_universitas.universitas_registrasi_cancel_reason_action)d" states="draft,confirm,approve"/>
                         <button string="Restart" type="object" name="button_restart" states="cancel"/>
+                        <button string="Print KRS" type="action" name="%(training_universitas.report_krs_pdf)d" states="approve"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -78,12 +79,14 @@
                         <group name="group_1" colspan="4" col="2">
                             <field name="mahasiswa_id"/>
                             <field name="semester_id"/>
+                            <field name="pricelist_id"/>
                         </group>
                         <notebook>
                             <page name="detail" string="Pengambilan Mata Kuliah">
-                                <field name="detail_ids">
+                                <field name="detail_ids" context="{'default_pricelist_id':pricelist_id}">
                                     <tree editable="bottom">
                                         <field name="mata_kuliah_id"/>
+                                        <field name="pricelist_id"/>
                                         <field name="sks"/>
                                         <field name="price_unit"/>
                                         <field name="price_subtotal"/>

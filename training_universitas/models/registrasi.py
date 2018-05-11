@@ -115,6 +115,10 @@ class UniversitasRegistrasi(models.Model):
         string="Amount to Text",
         compute="_compute_sks",
         )
+    pricelist_id = fields.Many2one(
+        string="Pricelist",
+        comodel_name="product.pricelist",
+        )
 
 
     @api.multi

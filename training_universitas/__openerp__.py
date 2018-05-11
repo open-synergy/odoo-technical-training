@@ -11,12 +11,14 @@
     "depends": [
         "hr",
         "base_amount_to_text",
+        "report_aeroo",
     ],
     "data": [
         "security/res_groups_data.xml",
         "security/ir_model_access_data.xml",
         "security/ir_rule_data.xml",
         "wizards/cancel_reason_views.xml",
+        "reports/report_krs.xml",
         "views/aktivitas_mk_views.xml",
         "views/registrasi_views.xml",
         "views/semester_views.xml",

@@ -50,6 +50,7 @@
 		                <field name="name"/>
 		                <field name="active"/>
 		                <field name="sks"/>
+                        <field name="product_id"/>
 		            </group>
                     <notebook>
                         <page name="aktivitas" string="Aktivitas">

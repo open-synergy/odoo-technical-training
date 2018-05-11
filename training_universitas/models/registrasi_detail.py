@@ -31,6 +31,10 @@ class UniversitasRegistrasiDetail(models.Model):
     price_unit = fields.Float(
         string="Price",
     )
+    pricelist_id = fields.Many2one(
+        string="Pricelist",
+        comodel_name="product.pricelist",
+        )
     price_subtotal = fields.Float(
         string="Price Subtotal",
         compute="_compute_price",

@@ -32,6 +32,10 @@ class UniversitasMataKuliah(models.Model):
         string="SKS",
         company_dependent=True,
     )
+    product_id = fields.Many2one(
+        string="Product",
+        comodel_name="product.product",
+        )
 
     keterangan = fields.Text(
         string="Keterangan",
